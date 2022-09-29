@@ -10,10 +10,30 @@ function input(x) {
 
     let y = parseInt(document.getElementById("result").value);
 
-    if (document.getElementById("result").value == 0){
+    if (document.getElementById("decimalVar").value == 0) {
+        x += y * 10;
         document.getElementById("result").value = x;
     } else {
-        document.getElementById("result").value += x;
+        let decimalCount = parseInt(document.getElementById("decimalVar").value);
+        if(decimalCount == 1){
+            x *= 1/10;
+            y += x;
+            document.getElementById("result").value = y;
+        } else {
+            document.getElementById("result").value += x;
+        }
+        decimalCount++;
+        document.getElementById("decimal").value = decimalCount;
+    }
+}
+
+function decimalPoint() {
+    if (document.getElementById("decimalVar").value == 0) {
+        document.getElementById("decimalVar").value = 1;
+    }
+
+    if(parseInt(document.getElementById("operation").value)) {
+        document.getElementById("result").value = 0;
     }
 }
 
